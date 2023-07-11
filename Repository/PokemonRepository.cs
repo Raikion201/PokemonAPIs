@@ -22,6 +22,11 @@ namespace Backend.Repository
             return _context.Pokemons.Where(p => p.Id == id).FirstOrDefault();
         }
 
+        public Pokemon GetPokemon(string name)
+        {
+            return _context.Pokemons.Where(p => p.Name == name).FirstOrDefault();
+        }
+
         public decimal GetPokemonRating(int pokeId)
         {
             var review = _context.Reviews.Where(p => p.Pokemon.Id == pokeId);

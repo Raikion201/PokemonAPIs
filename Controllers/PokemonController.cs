@@ -30,7 +30,7 @@ namespace Backend.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetPokemon(int pokeId)
         {
-            if(!_pokemonRepository.PokemonExist(pokeId))
+            if(!_pokemonRepository.PokemonExists(pokeId))
             {
                 return NotFound();
             }
@@ -50,7 +50,7 @@ namespace Backend.Controllers
 
         public IActionResult GetPokemonRating(int pokeId)
         {
-            if (!_pokemonRepository.PokemonExist(pokeId))
+            if (!_pokemonRepository.PokemonExists(pokeId))
             {
                 return NotFound();
             }

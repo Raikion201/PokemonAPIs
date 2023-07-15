@@ -2,7 +2,6 @@
 using Backend.Dto;
 using Backend.Interfaces;
 using Backend.Models;
-using Backend.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -25,8 +24,8 @@ namespace Backend.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
-        public IActionResult GetPokemons()
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Category>))]
+        public IActionResult GetCategories()
         {
             var categories = _mapper.Map<List<CategoryDto>>(_categoryRepository.GetCategories());
 

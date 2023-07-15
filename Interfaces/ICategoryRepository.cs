@@ -2,7 +2,7 @@
 
 namespace Backend.Interfaces
 {
-    public interface ICategory
+    public interface ICategoryRepository
     {
         ICollection<Category> GetCategories();
         Category GetCategory(int id);

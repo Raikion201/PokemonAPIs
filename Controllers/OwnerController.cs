@@ -2,7 +2,6 @@
 using Backend.Dto;
 using Backend.Interfaces;
 using Backend.Models;
-using Backend.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -23,7 +22,7 @@ namespace Backend.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<Owner>))]
         public IActionResult GetOwners()
         {
-            var owners = _mapper.Map<List<PokemonDto>>(_ownerRepository.GetOwners());
+            var owners = _mapper.Map<List<OwnerDto>>(_ownerRepository.GetOwners());
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -59,7 +58,7 @@ namespace Backend.Controllers
             {
                 return NotFound();
             }
-            var pokemons = _mapper.Map<List<PokemonDto>>(_ownerRepository.GetPokemonsByOwner(ownerId));
+            var pokemons = _mapper.Map<List<OwnerDto>>(_ownerRepository.GetPokemonsByOwner(ownerId));
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -71,7 +70,7 @@ namespace Backend.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetOwnerOfPokemon(int pokeId)
         {
-            var owners = _mapper.Map<List<Owner>>(_ownerRepository.GetOwnerOfPokemon(pokeId));
+            var owners = _mapper.Map<List<OwnerDto>>(_ownerRepository.GetOwnerOfPokemon(pokeId));
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 

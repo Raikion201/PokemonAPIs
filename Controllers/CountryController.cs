@@ -20,7 +20,7 @@ namespace Backend.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Country>))]
         public IActionResult GetCountries()
         {
             var countries = _mapper.Map<List<CountryDto>>(_countryRepository.GetCountries());
@@ -50,7 +50,7 @@ namespace Backend.Controllers
 
         }
 
-        [HttpGet("/owners/{ownerId}")]
+        [HttpGet("/owner/{ownerId}")]
         [ProducesResponseType(200, Type = typeof(Country))]
         [ProducesResponseType(400)]
 

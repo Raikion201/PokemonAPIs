@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Repository
 {
-    public class ReviewerReposiotry : IReviewRepository
+    public class ReviewerRepository : IReviewerRepository
     {
         private readonly DataContext _context;
-        public ReviewerReposiotry(DataContext context, IMapper mapper)
+        public ReviewerRepository(DataContext context, IMapper mapper)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace Backend.Repository
 
         public ICollection<Reviewer> GetReviewers()
         {
-            return _context.Reviewers.ToList();
+            return _context.Reviewers.Include(e => e.Reviews).ToList();
         }
 
         public ICollection<Review> GetReviewsByReviewer(int reviewerId)

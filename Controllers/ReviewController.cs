@@ -37,7 +37,7 @@ namespace Backend.Controllers
             {
                 return NotFound();
             }
-            var review = _mapper.Map<Review>(_reviewRepository.GetReview(reviewId));
+            var review = _mapper.Map<ReviewDto>(_reviewRepository.GetReview(reviewId));
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(review);

@@ -9,6 +9,8 @@ namespace Backend.Interfaces
         Country GetCountryByOwner(int ownerId);
         ICollection<Owner> GetOwnersFromAcountry(int countryId);
         bool CountryExists(int id);
-        
+
+        bool CreateCountry(Country category);
+        bool Save();
     }
 }

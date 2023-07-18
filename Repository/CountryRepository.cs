@@ -20,6 +20,12 @@ namespace Backend.Repository
             return _context.Countries.Any(c => c.Id == id);
         }
 
+        public bool CreateCountry(Country category)
+        {
+            _context.Add(category);
+            return Save();
+        }
+
         public ICollection<Country> GetCountries()
         {
             return _context.Countries.ToList();
@@ -38,6 +44,12 @@ namespace Backend.Repository
         public ICollection<Owner> GetOwnersFromAcountry(int countryId)
         {
             return _context.Owners.Where(c => c.Country.Id == countryId).ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }

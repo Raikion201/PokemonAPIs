@@ -9,5 +9,9 @@ namespace Backend.Interfaces
         ICollection<Owner> GetOwnerOfPokemon(int pokeId);
         ICollection<Pokemon> GetPokemonsByOwner(int ownerId);
         bool OwnerExists(int ownerId);
+
+        bool CreateOwner(Owner owner);
+
+        bool Save();
     }
 }

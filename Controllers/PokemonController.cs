@@ -81,7 +81,7 @@ namespace Backend.Controllers
 
             if (pokemons != null)
             {
-                ModelState.AddModelError("", "Owner already exists");
+                ModelState.AddModelError("", "Pokemon already exists");
                 return StatusCode(422, ModelState);
             }
 

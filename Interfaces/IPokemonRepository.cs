@@ -1,4 +1,5 @@
-﻿using Backend.Models;
+﻿using Backend.Dto;
+using Backend.Models;
 
 namespace Backend.Interfaces
 {
@@ -12,5 +13,6 @@ namespace Backend.Interfaces
         bool CreatePokemon(int ownerId, int categoryId, Pokemon pokemon);
         bool Save();
 
+        public Pokemon GetPokemonTrimToUpper(PokemonDto pokemonCreate);
     }
 }

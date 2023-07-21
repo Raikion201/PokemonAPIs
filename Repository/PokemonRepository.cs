@@ -1,4 +1,5 @@
 ﻿using Backend.Data;
+using Backend.Dto;
 using Backend.Interfaces;
 using Backend.Models;
 
@@ -41,6 +42,12 @@ namespace Backend.Repository
         public bool PokemonExists(int pokeId)
         {
             return _context.Pokemons.Any(p => p.Id == pokeId);
+        }
+
+        public Pokemon GetPokemonTrimToUpper(PokemonDto pokemonCreate)
+        {
+            return GetPokemons().Where(c => c.Name.Trim().ToUpper() == pokemonCreate.Name.Trim().ToUpper())
+                .FirstOrDefault();
         }
 
         public bool CreatePokemon(int ownerId, int categoryId, Pokemon pokemon)

@@ -1,4 +1,5 @@
 ﻿using Backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Interfaces
 {
@@ -10,6 +11,13 @@ namespace Backend.Interfaces
         bool CategoryExists(int id);
         bool CreateCategory(Category category);
         bool UpdateCategory(Category category);
+
+        bool DeleteCategory(Category category);
+        public bool DeleteCategory(Category category)
+        {
+            _context.Remove(category);
+            return Save();
+        }
         bool Save();
 
     }

@@ -1,5 +1,6 @@
 ﻿using Backend.Dto;
 using Backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Interfaces
 {
@@ -11,6 +12,13 @@ namespace Backend.Interfaces
         decimal GetPokemonRating(int pokeId);
         bool PokemonExists(int pokeId);
         bool CreatePokemon(int ownerId, int categoryId, Pokemon pokemon);
+
+        public bool DeletePokemon(Pokemon pokemon)
+        {
+            _context.Remove(pokemon);
+            return Save();
+        }
+        bool DeletePokemon(Pokemon pokemon);
         bool Save();
 
         public Pokemon GetPokemonTrimToUpper(PokemonDto pokemonCreate);
